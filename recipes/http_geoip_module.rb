@@ -43,6 +43,7 @@ bash "extract_geolib" do
   code <<-EOH
     tar xzvf #{geolib_filepath} -C #{::File.dirname(geolib_filepath)}
     cd GeoIP-#{node['nginx']['geoip']['lib_version']}
+    autoreconf -i
     which libtoolize && libtoolize -f
     ./configure
     make && make install
