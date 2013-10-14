@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-default['nginx']['ngx_pagespeed']['version']  = "release-1.5.27.3-beta"
+default['nginx']['ngx_pagespeed']['version']  = "release-1.6.29.5-beta"
 default['nginx']['ngx_pagespeed']['url']      = "https://github.com/pagespeed/ngx_pagespeed/archive/#{node['nginx']['ngx_pagespeed']['version']}.tar.gz"
 default['nginx']['ngx_pagespeed']['src']['cookbook'] = "nginx"
 default['nginx']['ngx_pagespeed']['src']['file'] = nil
