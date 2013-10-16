@@ -27,6 +27,21 @@ cookbook_file "#{node['nginx']['dir']}/naxsi_core.rules" do
   notifies :reload, 'service[nginx]'
 end
 
+template "#{node['nginx']['dir']}/naxsi.rules" do
+  owner "root"
+  group "root"
+  mode 0644
+  source "naxsi.rules.erb"
+  variables({
+    :params => node['nginx']
+  })
+end
+execute "touch naxsi tmp file" do
+  command "touch #{node['nginx']['naxsi']['tmp_file']}"
+  creates "#{node['nginx']['naxsi']['tmp_file']}"
+  action :run
+end
+
 naxsi_src_filename = ::File.basename(node['nginx']['naxsi']['url'])
 naxsi_src_filepath = "#{Chef::Config['file_cache_path']}/#{naxsi_src_filename}"
 naxsi_extract_path = "#{Chef::Config['file_cache_path']}/nginx-naxsi-#{node['nginx']['naxsi']['version']}"
@@ -49,4 +64,4 @@ bash 'extract_naxsi_module' do
 end
 
 node.run_state['nginx_configure_flags'] =
-  ['nginx_configure_flags'] | ["--add-module=#{naxsi_extract_path}/naxsi-core-#{node['nginx']['naxsi']['version']}/naxsi_src"]
+  node.run_state['nginx_configure_flags'] | ["--add-module=#{naxsi_extract_path}/naxsi-#{node['nginx']['naxsi']['version']}/naxsi_src"]
