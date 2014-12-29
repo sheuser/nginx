@@ -94,7 +94,6 @@ end
 
 template "#{node['nginx']['dir']}/conf.d/ngx_pagespeed.conf" do
   source 'ngx_pagespeed.conf.erb'
-  cookbook 'dop_nginx'
   owner 'root'
   group 'root'
   mode 00644
