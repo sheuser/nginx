@@ -4,7 +4,7 @@
 #
 # Author:: Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
 #
-# Copyright 2013-2014, Achim Rosenhagen
+# Copyright 2013-2015, Achim Rosenhagen
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,13 +19,13 @@
 # limitations under the License.
 #
 
-default['nginx']['ngx_pagespeed']['version'] = '1.9.32.1-beta'
-default['nginx']['ngx_pagespeed']['url'] = "https://codeload.github.com/pagespeed/ngx_pagespeed/tar.gz/v#{node['nginx']['ngx_pagespeed']['version']}"
-default['nginx']['ngx_pagespeed']['checksum'] = '072d4ce236a07c401f8a39a7929daa15fd934c76b97d00ab74f0b77acb126dacb65b3b334b80118c5a68698ac35b1914a726b78aa8b57b66ba9a1558ddde7277'
+default['nginx']['ngx_pagespeed']['version'] = '1.9.32.10-beta'
+default['nginx']['ngx_pagespeed']['url'] = "https://github.com/pagespeed/ngx_pagespeed/archive/release-#{node['nginx']['ngx_pagespeed']['version']}-beta.tar.gz"
+default['nginx']['ngx_pagespeed']['checksum'] = '2559470d6c5fc0beb2c82e07d77af91d5bf3311c4476723e3f31e0638a20a734'
 
-default['nginx']['ngx_pagespeed']['psol']['version'] = '1.9.32.1'
+default['nginx']['ngx_pagespeed']['psol']['version'] = '1.9.32.10'
 default['nginx']['ngx_pagespeed']['psol']['url'] = "https://dl.google.com/dl/page-speed/psol/#{node['nginx']['ngx_pagespeed']['psol']['version']}.tar.gz"
-default['nginx']['ngx_pagespeed']['checksum'] = 'b43820eb28353cd0b22d8c2142e1fcedb30ce8d5abdb940faeb88cfafb793bc3a2354b21797b451deb5a9edf406c6c865ce564ea25b22cdb5ff676b928d4619d'
+default['nginx']['ngx_pagespeed']['checksum'] = 'de4995f986cffc3b683db9e718f2471e3410af9c65c8988e439ae3978390abf7'
 
 default['nginx']['ngx_pagespeed']['cache-url'] = '/var/ngx_pagespeed_cache'
 default['nginx']['ngx_pagespeed']['cache-size'] = '512M'
@@ -59,3 +59,4 @@ default['nginx']['ngx_pagespeed']['CacheFlushPollIntervalSec'] = 600_000
 default['nginx']['ngx_pagespeed']['DownstreamCachePurgeMethod'] = 'PURGE'
 default['nginx']['ngx_pagespeed']['DownstreamCacheRewrittenPercentageThreshold'] = 95
 default['nginx']['ngx_pagespeed']['RetainComment'] = 'esi*'
+default['nginx']['ngx_pagespeed']['Disallow'] = ''
