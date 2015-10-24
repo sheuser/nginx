@@ -2,8 +2,8 @@
 # Cookbook Name:: nginx
 # Recipe:: pagespeed_module
 #
-default['nginx']['ngx_pagespeed']['version'] = '1.9.32.10'
-default['nginx']['ngx_pagespeed']['url'] = "https://github.com/pagespeed/ngx_pagespeed/archive/release-#{node['nginx']['ngx_pagespeed']['version']}-beta.tar.gz"
+default['nginx']['ngx_pagespeed']['version'] = '1.9.32.10-beta'
+default['nginx']['ngx_pagespeed']['url'] = "https://github.com/pagespeed/ngx_pagespeed/archive/release-#{node['nginx']['ngx_pagespeed']['version']}.tar.gz"
 default['nginx']['ngx_pagespeed']['checksum'] = '2559470d6c5fc0beb2c82e07d77af91d5bf3311c4476723e3f31e0638a20a734'
 
 default['nginx']['ngx_pagespeed']['psol']['version'] = '1.9.32.10'
