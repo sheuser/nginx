@@ -28,6 +28,8 @@ city_src_filepath    = "#{Chef::Config['file_cache_path']}/#{city_src_filename}"
 geolib_filename      = ::File.basename(node['nginx']['geoip']['lib_url'])
 geolib_filepath      = "#{Chef::Config['file_cache_path']}/#{geolib_filename}"
 
+package 'libtool'
+
 remote_file geolib_filepath do
   source   node['nginx']['geoip']['lib_url']
   checksum node['nginx']['geoip']['lib_checksum']

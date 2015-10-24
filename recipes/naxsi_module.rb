@@ -21,10 +21,10 @@
 
 cookbook_file "#{node['nginx']['dir']}/naxsi_core.rules" do
   source 'naxsi_core.rules'
-  owner 'root'
-  group 'root'
-  mode 00644
-  notifies :reload, 'service[nginx]'
+  owner  'root'
+  group  node['root_group']
+  mode   0644
+  notifies :reload, 'service[nginx]', :delayed
 end
 template "#{node['nginx']['dir']}/naxsi.rules" do
   owner 'root'
