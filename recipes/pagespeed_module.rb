@@ -44,7 +44,7 @@ unless ::File.exist?(ngx_pagespeed_src_filepath)
     cwd ::File.dirname(ngx_pagespeed_src_filepath)
     code <<-EOH
       mkdir -p #{ngx_pagespeed_extract_path}
-      tar xzf ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']} -C #{ngx_pagespeed_extract_path}
+      tar xzf ngx_pagespeed-release-#{node['nginx']['ngx_pagespeed']['version']} -C #{ngx_pagespeed_extract_path}
     EOH
   end
   bash 'canonicalize_javascript_libraries' do
