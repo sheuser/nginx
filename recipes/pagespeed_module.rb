@@ -30,7 +30,7 @@ mount node['nginx']['ngx_pagespeed']['FileCachePath'] do
   supports [remount: true]
 end
 
-ngx_pagespeed_src_filepath = "#{Chef::Config['file_cache_path']}/ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']}"
+ngx_pagespeed_src_filepath = "#{Chef::Config['file_cache_path']}/ngx_pagespeed-release-#{node['nginx']['ngx_pagespeed']['version']}"
 ngx_pagespeed_extract_path = Chef::Config['file_cache_path']
 
 unless ::File.exist?(ngx_pagespeed_src_filepath)
@@ -58,7 +58,7 @@ end
 
 ngx_psol_src_filename = ::File.basename(node['nginx']['ngx_pagespeed']['psol']['url'])
 ngx_psol_src_filepath = "#{Chef::Config['file_cache_path']}/#{ngx_psol_src_filename}"
-ngx_psol_extract_path = "#{ngx_pagespeed_extract_path}/ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']}"
+ngx_psol_extract_path = "#{ngx_pagespeed_extract_path}/ngx_pagespeed-release-#{node['nginx']['ngx_pagespeed']['version']}"
 
 unless ::File.exist?(ngx_psol_src_filepath)
   remote_file ngx_psol_src_filepath do
