@@ -88,4 +88,4 @@ template "#{node['nginx']['dir']}/conf.d/ngx_pagespeed.conf" do
 end
 
 node.run_state['nginx_configure_flags'] =
-  node.run_state['nginx_configure_flags'] | ["--add-module=#{Chef::Config['file_cache_path']}/ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']}"]
+  node.run_state['nginx_configure_flags'] | ["--add-module=#{Chef::Config['file_cache_path']}/ngx_pagespeed-release-#{node['nginx']['ngx_pagespeed']['version']}"]
