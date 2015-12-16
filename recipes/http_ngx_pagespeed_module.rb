@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: nginx
-# Recipe:: pagespeed_module
+# Cookbook Name:: dop_nginx
+# Recipe:: ngx_pagespeed
 #
 
 package 'build-essential'
@@ -30,7 +30,7 @@ mount node['nginx']['ngx_pagespeed']['FileCachePath'] do
   supports [remount: true]
 end
 
-ngx_pagespeed_src_filepath = "#{Chef::Config['file_cache_path']}/ngx_pagespeed-release-#{node['nginx']['ngx_pagespeed']['version']}"
+ngx_pagespeed_src_filepath = "#{Chef::Config['file_cache_path']}/ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']}"
 ngx_pagespeed_extract_path = Chef::Config['file_cache_path']
 
 unless ::File.exist?(ngx_pagespeed_src_filepath)
@@ -44,7 +44,7 @@ unless ::File.exist?(ngx_pagespeed_src_filepath)
     cwd ::File.dirname(ngx_pagespeed_src_filepath)
     code <<-EOH
       mkdir -p #{ngx_pagespeed_extract_path}
-      tar xzf ngx_pagespeed-release-#{node['nginx']['ngx_pagespeed']['version']} -C #{ngx_pagespeed_extract_path}
+      tar xzf ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']} -C #{ngx_pagespeed_extract_path}
     EOH
   end
   bash 'canonicalize_javascript_libraries' do
@@ -58,7 +58,7 @@ end
 
 ngx_psol_src_filename = ::File.basename(node['nginx']['ngx_pagespeed']['psol']['url'])
 ngx_psol_src_filepath = "#{Chef::Config['file_cache_path']}/#{ngx_psol_src_filename}"
-ngx_psol_extract_path = "#{ngx_pagespeed_extract_path}/ngx_pagespeed-release-#{node['nginx']['ngx_pagespeed']['version']}"
+ngx_psol_extract_path = "#{ngx_pagespeed_extract_path}/ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']}"
 
 unless ::File.exist?(ngx_psol_src_filepath)
   remote_file ngx_psol_src_filepath do
@@ -88,4 +88,4 @@ template "#{node['nginx']['dir']}/conf.d/ngx_pagespeed.conf" do
 end
 
 node.run_state['nginx_configure_flags'] =
-  node.run_state['nginx_configure_flags'] | ["--add-module=#{Chef::Config['file_cache_path']}/ngx_pagespeed-release-#{node['nginx']['ngx_pagespeed']['version']}"]
+  node.run_state['nginx_configure_flags'] | ["--add-module=#{Chef::Config['file_cache_path']}/ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']}"]
