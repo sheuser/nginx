@@ -77,7 +77,7 @@ unless ::File.exist?(ngx_psol_src_filepath)
 end
 
 template "#{node['nginx']['dir']}/conf.d/ngx_pagespeed.conf" do
-  source 'ngx_pagespeed.conf.erb'
+  source 'modules/ngx_pagespeed.conf.erb'
   owner 'root'
   group 'root'
   mode 00644
