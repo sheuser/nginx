@@ -16,6 +16,7 @@ default['nginx']['ngx_pagespeed']['enabled'] = 'on'
 default['nginx']['ngx_pagespeed']['canonicalize_javascript_libraries'] = false
 default['nginx']['ngx_pagespeed']['FileCachePath'] = node['nginx']['ngx_pagespeed']['cache-url']
 default['nginx']['ngx_pagespeed']['CacheFlushFilename'] = 'cache.flush'
+default['nginx']['ngx_pagespeed']['RewriteLevel'] = 'PassThrough'
 default['nginx']['ngx_pagespeed']['EnableFilters'] = 'collapse_whitespace,combine_css,combine_javascript,remove_comments,sprite_images,extend_cache'
 default['nginx']['ngx_pagespeed']['DisableFilters'] = 'defer_javascript'
 
