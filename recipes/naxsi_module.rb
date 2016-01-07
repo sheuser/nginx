@@ -57,7 +57,7 @@ bash 'extract_naxsi_module' do
   cwd  ::File.dirname(naxsi_src_filepath)
   code <<-EOH
     mkdir -p #{naxsi_extract_path}
-    tar xzf #{naxsi_src_filename} -C #{naxsi_extract_path}
+    tar xzf #{naxsi_src_filename} --no-same-owner -C #{naxsi_extract_path}
   EOH
   not_if { ::File.exist?(naxsi_extract_path) }
 end

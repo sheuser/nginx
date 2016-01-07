@@ -33,7 +33,7 @@ bash 'extract_luajit' do
   cwd  ::File.dirname(luajit_src_filepath)
   code <<-EOH
     mkdir -p #{luajit_extract_path}
-    tar xzf #{luajit_src_filename} -C #{luajit_extract_path}
+    tar xzf #{luajit_src_filename} --no-same-owner -C #{luajit_extract_path}
     cd luajit-#{node['nginx']['luajit']['version']}/LuaJIT-#{node['nginx']['luajit']['version']}
     make && make install
     export LUAJIT_INC="/usr/local/include/luajit-2.0"

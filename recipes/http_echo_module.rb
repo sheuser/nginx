@@ -35,7 +35,7 @@ bash 'extract_http_echo_module' do
   cwd ::File.dirname(echo_src_filepath)
   code <<-EOH
     mkdir -p #{echo_extract_path}
-    tar xzf #{echo_src_filename} -C #{echo_extract_path}
+    tar xzf #{echo_src_filename} --no-same-owner -C #{echo_extract_path}
     mv #{echo_extract_path}/*/* #{echo_extract_path}/
   EOH
 
