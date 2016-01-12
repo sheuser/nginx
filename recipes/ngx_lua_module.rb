@@ -35,7 +35,7 @@ bash 'extract_lua_module' do
   cwd  ::File.dirname(lua_src_filepath)
   code <<-EOH
     mkdir -p #{lua_extract_path}
-    tar xzf #{lua_src_filename} -C #{lua_extract_path}
+    tar xzf #{lua_src_filename} --no-same-owner -C #{lua_extract_path}
   EOH
   not_if { ::File.exist?(lua_extract_path) }
 end

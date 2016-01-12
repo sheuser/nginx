@@ -41,7 +41,7 @@ else
     cwd ::File.dirname(arm_src_filepath)
     code <<-EOH
       mkdir -p #{arm_extract_path}
-      tar xzf #{arm_src_filename} -C #{arm_extract_path}
+      tar xzf #{arm_src_filename} --no-same-owner -C #{arm_extract_path}
       mv #{arm_extract_path}/*/* #{arm_extract_path}/
     EOH
     not_if { ::File.exist?(arm_extract_path) }

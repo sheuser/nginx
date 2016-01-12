@@ -8,6 +8,7 @@ include pagespeed_libraries.conf;
 pagespeed <%= @params['enabled'] %>;
 pagespeed FileCachePath <%= @params['FileCachePath'] %>;
 pagespeed CacheFlushFilename <%= @params['CacheFlushFilename'] %>;
+pagespeed RewriteLevel <%= @params['RewriteLevel'] %>;
 pagespeed EnableFilters <%= @params['EnableFilters'] %>;
 <% if @params['DisableFilters'] %>
 pagespeed DisableFilters <%= @params['DisableFilters'] %>;
