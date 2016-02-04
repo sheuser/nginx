@@ -2,13 +2,13 @@
 # Cookbook Name:: nginx
 # Recipe:: pagespeed_module
 #
-default['nginx']['ngx_pagespeed']['version'] = '1.10.33.2-beta'
+default['nginx']['ngx_pagespeed']['version'] = '1.10.33.4-beta'
 default['nginx']['ngx_pagespeed']['url'] = "https://codeload.github.com/pagespeed/ngx_pagespeed/tar.gz/v#{node['nginx']['ngx_pagespeed']['version']}"
-default['nginx']['ngx_pagespeed']['checksum'] = '2d48d119f2b0f78fdf0b3b9d93e26bc46601573782e84356cd487de4805e1fdf'
+default['nginx']['ngx_pagespeed']['checksum'] = '4843e069669bdb040b5a47975e56b607da92cc4fcd5a91c985b8cc303b2ea6a6'
 
-default['nginx']['ngx_pagespeed']['psol']['version'] = '1.10.33.2'
+default['nginx']['ngx_pagespeed']['psol']['version'] = '1.10.33.4'
 default['nginx']['ngx_pagespeed']['psol']['url'] = "https://dl.google.com/dl/page-speed/psol/#{node['nginx']['ngx_pagespeed']['psol']['version']}.tar.gz"
-default['nginx']['ngx_pagespeed']['checksum'] = '1093b999d01cd84e3462d982afe3572c930f03d975a4a807d79eb61ff6dc3b99'
+default['nginx']['ngx_pagespeed']['checksum'] = '243df699210137f90199c11394d28f0eafc5eeb7e8ad981d3381794ab990a98d'
 
 default['nginx']['ngx_pagespeed']['cache-url'] = '/var/ngx_pagespeed_cache'
 default['nginx']['ngx_pagespeed']['cache-size'] = '512M'
