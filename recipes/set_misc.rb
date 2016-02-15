@@ -19,7 +19,7 @@ bash 'extract_set_misc_module' do
   cwd  ::File.dirname(set_misc_src_filepath)
   code <<-EOH
     mkdir -p #{set_misc_extract_path}
-    tar xzf #{set_misc_src_filename} -C #{set_misc_extract_path}
+    tar xzf #{set_misc_src_filename} --no-same-owner -C #{set_misc_extract_path}
   EOH
   not_if { ::File.exist?(set_misc_extract_path) }
 end

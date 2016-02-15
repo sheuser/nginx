@@ -35,7 +35,7 @@ bash 'extract_openssl' do
   cwd  ::File.dirname(src_filepath)
   code <<-EOH
     mkdir -p #{extract_path}
-    tar xzf #{src_filename} -C #{extract_path}
+    tar xzf #{src_filename} --no-same-owner -C #{extract_path}
     mv #{extract_path}/*/* #{extract_path}/
   EOH
   not_if { ::File.exist?(extract_path) }

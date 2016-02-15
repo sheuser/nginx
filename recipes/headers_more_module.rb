@@ -41,7 +41,7 @@ bash 'extract_headers_more' do
   cwd  ::File.dirname(tar_location)
   user 'root'
   code <<-EOH
-    tar -zxf #{tar_location} -C #{module_location}
+    tar -zxf #{tar_location} --no-same-owner -C #{module_location}
   EOH
   not_if { ::File.exist?("#{module_location}/headers-more-nginx-module-#{node['nginx']['headers_more']['version']}/config") }
 end

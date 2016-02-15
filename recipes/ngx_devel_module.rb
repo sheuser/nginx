@@ -35,7 +35,7 @@ bash 'extract_devel_module' do
   cwd  ::File.dirname(devel_src_filepath)
   code <<-EOH
     mkdir -p #{devel_extract_path}
-    tar xzf #{devel_src_filename} -C #{devel_extract_path}
+    tar xzf #{devel_src_filename} --no-same-owner -C #{devel_extract_path}
   EOH
   not_if { ::File.exist?(devel_extract_path) }
 end
