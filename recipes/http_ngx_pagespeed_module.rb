@@ -46,7 +46,7 @@ unless ::File.exist?(ngx_pagespeed_src_filepath)
   bash 'canonicalize_javascript_libraries' do
     cwd ::File.dirname(ngx_pagespeed_src_filepath)
     code <<-EOH
-      #{ngx_pagespeed_extract_path}/scripts/pagespeed_libraries_generator.sh > #{node['nginx']['dir']}/pagespeed_libraries.conf
+      #{ngx_pagespeed_extract_path}/ngx_pagespeed-#{node['nginx']['ngx_pagespeed']['version']}/scripts/pagespeed_libraries_generator.sh > #{node['nginx']['dir']}/pagespeed_libraries.conf
     EOH
     only_if { node['nginx']['ngx_pagespeed']['canonicalize_javascript_libraries'] }
   end
