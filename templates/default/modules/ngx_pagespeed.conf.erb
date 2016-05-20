@@ -37,5 +37,8 @@ pagespeed CacheFlushPollIntervalSec <%= @params['CacheFlushPollIntervalSec'] %>;
 pagespeed DownstreamCacheRewrittenPercentageThreshold <%= @params['DownstreamCacheRewrittenPercentageThreshold'] %>;
 pagespeed RetainComment "<%= @params['RetainComment'] %>";
 pagespeed DownstreamCachePurgeMethod <%= @params['DownstreamCachePurgeMethod'] %>;
+pagespeed DownstreamCacheRebeaconingKey <%= @params['DownstreamCacheRebeaconingKey'] %>;
 
+<% if @params['Disallow'] %>
 pagespeed Disallow <%= @params['Disallow'] %>;
+<% end %>

@@ -19,17 +19,13 @@
 # limitations under the License.
 #
 
+include_recipe 'ohai::default'
+
 ohai 'reload_nginx' do
   plugin 'nginx'
   action :nothing
 end
 
-template "#{node['ohai']['plugin_path']}/nginx.rb" do
-  source 'plugins/nginx.rb.erb'
-  owner  'root'
-  group  node['root_group']
-  mode   '0755'
-  notifies :reload, 'ohai[reload_nginx]', :immediately
+ohai_plugin 'nginx' do
+  source_file 'plugins/nginx.rb'
 end
-
-include_recipe 'ohai::default'

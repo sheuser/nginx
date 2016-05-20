@@ -1,12 +1,25 @@
 sudo: false
-language: ruby
-cache: bundler
-bundler_args: --without development kitchen_docker kitchen_vagrant
-rvm:
-- 2.1.4
+
+addons:
+  apt:
+    sources:
+      - chef-stable-precise
+    packages:
+      - chefdk
+
+# Don't `bundle install`
+install: echo "skip bundle install"
+
+# Ensure we make ChefDK's Ruby the default
+before_script:
+  - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+  - chef gem install coveralls -v '~> 0.8.13'
+
 script:
-- bundle exec rake style
-- bundle exec rake spec
+  - chef --version
+  - gem query -d chefspec rubocop foodcritic rake
+  - rake
+
 notifications:
   webhooks:
     urls:
