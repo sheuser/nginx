@@ -19,6 +19,8 @@
 # limitations under the License.
 #
 
+include_recipe 'ohai::default'
+
 ohai 'reload_nginx' do
   plugin 'nginx'
   action :nothing
@@ -27,5 +29,3 @@ end
 ohai_plugin 'nginx' do
   source_file 'plugins/nginx.rb'
 end
-
-include_recipe 'ohai::default'
