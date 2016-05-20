@@ -1,11 +1,5 @@
-AllCops:
-  Exclude:
-    - spec/libraries_specs/helpers_spec.rb
-    - Guardfile
-    - 'vendor/**/*'
-
 Metrics/LineLength:
   Max: 160
 
-Style/SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: false

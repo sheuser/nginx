@@ -1,9 +1,10 @@
+---
 driver:
   name: docker
   use_sudo: false
 
 platforms:
-  - name: debian-7
+  # - name: debian-7
 
 <% %w(12.04 14.04).each do |ubver| %>
   - name: ubuntu-<%= ubver %>
@@ -14,8 +15,3 @@ platforms:
       disable_upstart: false
       run_command: /sbin/init
 <% end %>
-
-  # @todo figure out how to test systemd in docker
-  # - name: ubuntu-15.04
-  #   driver:
-  #     run_command: /lib/systemd/systemd
