@@ -15,7 +15,6 @@ node['nginx']['default']['modules'].each do |ngx_module|
 end
 
 logrotate_app 'nginx' do
-  cookbook 'logrotate'
   path "#{node['nginx']['log_dir']}/*.log"
   frequency 'daily'
   rotate 2

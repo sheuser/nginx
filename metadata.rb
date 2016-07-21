@@ -5,6 +5,6 @@ license           'Apache 2.0'
 description       'Installs and configures nginx'
 issues_url        'https://github.com/miketheman/nginx/issues'
 source_url        'https://github.com/miketheman/nginx'
-version           '2.99.0'
+version           '2.99.1'
 
 depends 'ohai',   '~> 4.0.0'
