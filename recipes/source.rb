@@ -161,6 +161,12 @@ when 'upstart'
     supports :status => true, :restart => true, :reload => true
     action   :nothing
   end
+when 'systemd'
+  service 'nginx' do
+    provider Chef::Provider::Service::Systemd
+    supports :status => true, :restart => true, :reload => true
+    action :nothing
+  end
 else
   node.set['nginx']['daemon_disable'] = false
 
